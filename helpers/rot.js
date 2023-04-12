@@ -20,21 +20,14 @@ function rotEncode(string) {
   const _rotEncode = rotEncode;
 export { _rotEncode as rotEncode };
   
-let result;
-  function rotDecode(y) {
-    result = rotEncode(y);
-    return result;
+  function rotDecode(n) {
+    n=5;
+    let rowStart = n * (n - 1) + 1; // вычисляем первое число строки
+    let row = "";
+    for (let i = 0; i < n; i++) {
+      row += rowStart + 2 * i + " "; // добавляем к строке каждое следующее нечетное число
+    }
+    return row;
   }
-  
   const _rotDecode = rotDecode;
 export { _rotDecode as rotDecode };
-
-
-// function oddTriangleRow(n) {
-//   let rowStart = n * (n - 1) + 1; // вычисляем первое число строки
-//   let row = "";
-//   for (let i = 0; i < n; i++) {
-//     row += rowStart + 2 * i + " "; // добавляем к строке каждое следующее нечетное число
-//   }
-//   return row.trim(); // удаляем пробел в конце строки
-// }
